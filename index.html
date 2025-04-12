@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정형외과 - 전문의료서비스</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>조성호정형외과</h1>
+            <nav>
+                <ul>
+                    <li><a href="#info">의료진소개</a></li>
+                    <li><a href="#hours">진료안내</a></li>
+                    <li><a href="#services">의료정보</a></li>
+                    <li><a href="#location">오시는길</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>정형외과<br><span>전문의</span></h2>
+                <p>환자 중심의 맞춤형 진료를 제공합니다</p>
+                <button class="btn" id="reservation-btn">예약하기</button>
+            </div>
+            <div class="hero-image">
+                <img src="doctor.jpg" alt="정형외과 의사">
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="info-section">
+        <div class="container">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-user-md fa-2x"></i>
+                </div>
+                <h3>의료진 소개</h3>
+                <p><strong>조세명 원장</strong></p>
+                <p>연세원주의과대학<br>정형외과 전문의<br>세일병원 과장
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-clock fa-2x"></i>
+                </div>
+                <h3>진료 안내</h3>
+                <p>평일: 09:00-18:00<br>토요일: 09:00-13:00</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-notes-medical fa-2x"></i>
+                </div>
+                <h3>의료 정보</h3>
+                <p>글로벌 의료 수준<br>첨단 통증완화 시술</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>주요 진료분야</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-bone fa-3x"></i>
+                    <h3>무릎 관절</h3>
+                    <p>관절염, 인대 손상, 반월상 연골 손상</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-injured fa-3x"></i>
+                    <h3>척추 질환</h3>
+                    <p>디스크, 척추관 협착증, 척추전만증</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-child fa-3x"></i>
+                    <h3>어깨 질환</h3>
+                    <p>회전근개 손상, 오십견, 어깨 탈구</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand fa-3x"></i>
+                    <h3>손/팔꿈치</h3>
+                    <p>손목터널증후군, 테니스엘보, 골절</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location-section">
+        <div class="container">
+            <h2>오시는 길</h2>
+            <div class="location-content">
+                <div class="map">
+                    <img src="map-image.jpg" alt="병원 위치 지도">
+                    <a href="https://map.naver.com/p/entry/place/13251712?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=129.1212263&lat=35.1890752&c=16.29,0,0,0,dh" target="_blank" rel="noopener noreferrer" class="map-link" title="네이버 지도에서 보기">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                </div>
+                <div class="location-info">
+                    <h3>주소</h3>
+                    <p>부산 해운대구 해운대로91번길 10</p>
+                    <h3>전화번호</h3>
+                    <p>051-782-1301</p>
+                    <h3>교통안내</h3>
+                    <p><strong>지하철:</strong> 재송역 1번 출구에서 200m</p>
+                    <p><strong>버스:</strong> 31번, 107번, 144번, 189-1번, 200번 (정형외과 앞 하차)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 정형외과 의원. All rights reserved.</p>
+            <p>의료기관명: 정형외과 의원 | 대표: 조세명 | 사업자등록번호: 000-00-00000</p>
+            <p><a href="login.html" class="admin-link">관리자</a></p>
+        </div>
+    </footer>
+
+    <div id="reservation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>진료 예약</h2>
+            <form id="reservation-form">
+                <div class="form-group">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">예약 날짜</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">예약 시간</label>
+                    <select id="time" name="time" required>
+                        <option value="">시간 선택</option>
+                        <option value="09:00">09:00</option>
+                        <option value="09:30">09:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">진료 분야</label>
+                    <select id="department" name="department" required>
+                        <option value="">진료 분야 선택</option>
+                        <option value="knee">무릎 관절</option>
+                        <option value="spine">척추 질환</option>
+                        <option value="shoulder">어깨 질환</option>
+                        <option value="hand">손/팔꿈치</option>
+                        <option value="other">기타</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">증상 메모</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">개인정보 수집 및 이용에 동의합니다</label>
+                </div>
+                <button type="submit" class="btn submit-btn">예약 신청</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>예약이 완료되었습니다</h2>
+            <p>입력하신 정보로 예약이 접수되었습니다.</p>
+            <p>확인 전화를 드릴 예정이니 참고 부탁드립니다.</p>
+            <div class="reservation-details">
+                <p><strong>예약자:</strong> <span id="confirm-name"></span></p>
+                <p><strong>연락처:</strong> <span id="confirm-phone"></span></p>
+                <p><strong>예약일시:</strong> <span id="confirm-datetime"></span></p>
+                <p><strong>진료분야:</strong> <span id="confirm-department"></span></p>
+            </div>
+            <button class="btn close-confirm-btn">확인</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
