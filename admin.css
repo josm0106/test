@@ -1,0 +1,212 @@
+/* 관리자 페이지 스타일 */
+.admin-header {
+    background-color: var(--accent-color);
+}
+
+.admin-header h1 {
+    color: var(--white);
+}
+
+.admin-header nav ul li a {
+    color: var(--white);
+}
+
+.admin-header nav ul li a:hover,
+.admin-header nav ul li a.active {
+    color: var(--background-color);
+}
+
+.admin-main {
+    padding: 120px 0 60px;
+    min-height: calc(100vh - 120px);
+}
+
+.admin-panel, .login-panel {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.login-panel {
+    max-width: 480px;
+    margin: 0 auto 40px;
+}
+
+.login-panel h2 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-panel h2 {
+    color: var(--accent-color);
+    margin-bottom: 0;
+}
+
+.date-controls {
+    display: flex;
+    align-items: center;
+}
+
+.date-controls input[type="date"] {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0 10px;
+}
+
+.btn-sm {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-sm:hover {
+    background-color: var(--accent-color);
+}
+
+.reservation-list {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: var(--background-color);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: var(--light-gray);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px 0;
+    display: none;
+}
+
+.no-data i {
+    font-size: 3rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.no-data p {
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.action-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    color: var(--accent-color);
+}
+
+.action-btn.delete {
+    color: #ff6b6b;
+}
+
+.action-btn.delete:hover {
+    color: #ff2f2f;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    background-color: #ff6b6b;
+}
+
+.btn-cancel:hover {
+    background-color: #ff2f2f;
+}
+
+/* 로그인 관련 스타일 */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.toggle-password:hover {
+    color: var(--accent-color);
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .date-controls {
+        margin-top: 15px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+    
+    .hide-on-mobile {
+        display: none;
+    }
+} 
