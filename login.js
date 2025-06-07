@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const rememberCheckbox = document.getElementById('remember');
     const loginError = document.getElementById('login-error');
     const togglePasswordBtn = document.querySelector('.toggle-password');
+
+    // 입력 중 오류 메시지 초기화
+    function clearError() {
+        loginError.textContent = '';
+    }
+    usernameInput.addEventListener('input', clearError);
+    passwordInput.addEventListener('input', clearError);
     
     // 관리자 계정 정보 (실제로는 서버 측에서 처리해야 함)
     const ADMIN_USERNAME = 'josm0106';
