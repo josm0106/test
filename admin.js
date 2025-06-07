@@ -18,6 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailModal = document.getElementById('reservation-detail-modal');
     const closeDetailBtn = document.getElementById('close-detail');
     const deleteReservationBtn = document.getElementById('delete-reservation');
+
+    // 계정 관리 요소
+    const accountForm = document.getElementById('account-form');
+    const newUsernameInput = document.getElementById('new-username');
+    const newPasswordInput = document.getElementById('new-password');
+    const accountMsg = document.getElementById('account-message');
+
+    function getAdminAccount() {
+        const stored = localStorage.getItem('admin_account');
+        if (stored) {
+            try { return JSON.parse(stored); } catch (e) {}
+        }
+        return { username: 'admin', password: 'password' };
+    }
+
+    function saveAdminAccount(username, password) {
+        localStorage.setItem('admin_account', JSON.stringify({ username, password }));
+    }
     
     // 선택된 예약 ID를 저장하는 변수
     let selectedReservationId = null;
@@ -264,6 +282,26 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'login.html';
     }
     
+    // 계정 관리 폼 처리
+    if (accountForm) {
+        const current = getAdminAccount();
+        newUsernameInput.value = current.username;
+        newPasswordInput.value = current.password;
+
+        accountForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const u = newUsernameInput.value.trim();
+            const p = newPasswordInput.value;
+            if (!u || !p) {
+                accountMsg.textContent = '아이디와 비밀번호를 입력하세요.';
+                return;
+            }
+            saveAdminAccount(u, p);
+            accountMsg.textContent = '저장되었습니다.';
+            setTimeout(() => { accountMsg.textContent = ''; }, 2000);
+        });
+    }
+
     // 초기 데이터 로드
     displayReservations(viewDateInput.value);
 }); 

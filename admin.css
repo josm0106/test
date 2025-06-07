@@ -191,6 +191,15 @@ tbody tr:hover {
     min-height: 20px;
 }
 
+.success-message {
+    color: #2ecc71;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
 /* 반응형 스타일 */
 @media (max-width: 768px) {
     .admin-header {
