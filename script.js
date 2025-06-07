@@ -43,6 +43,33 @@ function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
 }
 
+// 시간 옵션 생성
+function generateTimeOptions() {
+    const timeSelect = document.getElementById('time');
+    if (!timeSelect) return;
+
+    // 기존 옵션 제거 (placeholder 제외)
+    while (timeSelect.options.length > 1) {
+        timeSelect.remove(1);
+    }
+
+    const startMorning = 9 * 60; // 09:00 in minutes
+    const lunchStart = 12 * 60; // 12:00
+    const lunchEnd = 14 * 60;   // 14:00
+    const endDay = 18 * 60;     // 18:00
+
+    for (let minutes = startMorning; minutes < endDay; minutes += 15) {
+        if (minutes >= lunchStart && minutes < lunchEnd) continue; // 점심시간 제외
+        const h = String(Math.floor(minutes / 60)).padStart(2, '0');
+        const m = String(minutes % 60).padStart(2, '0');
+        const value = `${h}:${m}`;
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        timeSelect.appendChild(option);
+    }
+}
+
 // 모든 예약 가져오기
 function getAllReservations() {
     const reservationsJson = localStorage.getItem('reservations');
@@ -94,7 +121,10 @@ function updateAvailableTimeSlots(selectedDate) {
 // 예약 버튼 클릭 시 모달 열기
 reservationBtn.addEventListener('click', function() {
     openModal(reservationModal);
-    
+
+    // 시간 옵션 동적 생성
+    generateTimeOptions();
+
     // 날짜 필드에 오늘 날짜 이후만 선택 가능하도록 설정
     const dateInput = document.getElementById('date');
     const today = new Date();
@@ -211,6 +241,7 @@ function closeModal(modal) {
 
 // 페이지 로드 애니메이션
 document.addEventListener('DOMContentLoaded', function() {
+    generateTimeOptions();
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
     const infoCards = document.querySelectorAll('.info-card');

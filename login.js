@@ -8,9 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginError = document.getElementById('login-error');
     const togglePasswordBtn = document.querySelector('.toggle-password');
     
-    // 관리자 계정 정보 (실제로는 서버 측에서 처리해야 함)
-    const ADMIN_USERNAME = 'josm0106';
-    const ADMIN_PASSWORD = 'whtpaud';
+    // 기본 관리자 계정 (로컬 스토리지에 저장)
+    const DEFAULT_ADMIN = { username: 'admin', password: 'password' };
+
+    function getAdminAccount() {
+        const stored = localStorage.getItem('admin_account');
+        if (stored) {
+            try { return JSON.parse(stored); } catch (e) {}
+        }
+        localStorage.setItem('admin_account', JSON.stringify(DEFAULT_ADMIN));
+        return DEFAULT_ADMIN;
+    }
     
     // 저장된 로그인 정보 불러오기
     loadSavedCredentials();
@@ -41,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // 인증 확인 (실제로는 서버 측에서 처리해야 함)
-        if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        // 저장된 관리자 계정 확인
+        const admin = getAdminAccount();
+        if (username === admin.username && password === admin.password) {
             // 인증 성공
             loginError.textContent = '';
             
